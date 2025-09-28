@@ -1,403 +1,402 @@
-# Specification-Driven Development (SDD)
+# 规范驱动开发（SDD）
 
-## The Power Inversion
+## 权力的倒置
 
-For decades, code has been king. Specifications served code—they were the scaffolding we built and then discarded once the "real work" of coding began. We wrote PRDs to guide development, created design docs to inform implementation, drew diagrams to visualize architecture. But these were always subordinate to the code itself. Code was truth. Everything else was, at best, good intentions. Code was the source of truth, and as it moved forward, specs rarely kept pace. As the asset (code) and the implementation are one, it's not easy to have a parallel implementation without trying to build from the code.
+几十年来，代码一直是王。规范服务于代码——它们是我们搭起、而在“真正的编码工作”开始后就丢弃的脚手架。我们写 PRD 指导开发，创建设计文档辅助实现，画图表可视化架构。但这些始终从属于代码本身。代码即真理。其他一切，充其量是良好的意图。代码是事实来源，而它不断向前推进，规范很少能跟上。由于资产（代码）与实现是一体的，不从代码出发就很难并行做出另一个实现。
 
-Spec-Driven Development (SDD) inverts this power structure. Specifications don't serve code—code serves specifications. The Product Requirements Document (PRD) isn't a guide for implementation; it's the source that generates implementation. Technical plans aren't documents that inform coding; they're precise definitions that produce code. This isn't an incremental improvement to how we build software. It's a fundamental rethinking of what drives development.
+规范驱动开发（SDD）颠倒了这种权力结构。不是规范服务代码——而是代码服务规范。产品需求文档（PRD）不再是实现的指南；它是生成实现的源头。技术计划不再是告知编码的文档；它是产生代码的精确定义。这并非对软件构建方式的渐进式改进，而是对“什么驱动开发”的根本性再思考。
 
-The gap between specification and implementation has plagued software development since its inception. We've tried to bridge it with better documentation, more detailed requirements, stricter processes. These approaches fail because they accept the gap as inevitable. They try to narrow it but never eliminate it. SDD eliminates the gap by making specifications and their concrete implementation plans born from the specification executable. When specifications and implementation plans generate code, there is no gap—only transformation.
+规范与实现之间的鸿沟，自软件诞生以来便如影随形。我们试图通过更好的文档、更详尽的需求、更严格的流程来弥合它。这些方法失败在于它们默认了鸿沟的必然性——它们试图缩小它，却从未消除它。SDD 通过让从规范中生发出的规范与具体实现计划可执行来消除这道鸿沟。当规范与实现计划生成代码时，不再有鸿沟——只有“转换”。
 
-This transformation is now possible because AI can understand and implement complex specifications, and create detailed implementation plans. But raw AI generation without structure produces chaos. SDD provides that structure through specifications and subsequent implementation plans that are precise, complete, and unambiguous enough to generate working systems. The specification becomes the primary artifact. Code becomes its expression (as an implementation from the implementation plan) in a particular language and framework.
+这一转变如今之所以可能，是因为 AI 能理解并实现复杂规范，并生成详细的实现计划。但缺乏结构的原始 AI 生成会带来混乱。SDD 通过精确、完整、无歧义到足以生成可运行系统的规范与后续实现计划提供这种结构。规范成为第一性产物。代码则是在特定语言与框架中（依据实现计划）对规范的表达。
 
-In this new world, maintaining software means evolving specifications. The intent of the development team is expressed in natural language ("**intent-driven development**"), design assets, core principles and other guidelines. The **lingua franca** of development moves to a higher level, and code is the last-mile approach.
+在这个新世界里，维护软件意味着演进规范。开发团队的意图以自然语言（“意图驱动开发”）、设计资产、核心原则与其他指南表达。开发的通用语提升到更高层次，代码成为最后一公里的路径。
 
-Debugging means fixing specifications and their implementation plans that generate incorrect code. Refactoring means restructuring for clarity. The entire development workflow reorganizes around specifications as the central source of truth, with implementation plans and code as the continuously regenerated output. Updating apps with new features or creating a new parallel implementation because we are creative beings, means revisiting the specification and creating new implementation plans. This process is therefore a 0 -> 1, (1', ..), 2, 3, N.
+调试意味着修正会生成错误代码的规范及其实现计划。重构意味着为清晰而做的重组。整个开发工作流围绕规范这一单一事实来源重组，实现计划与代码作为持续再生成的产物。当我们添加新功能或因为创造性而想做一个并行实现时，意味着回到规范并创建新的实现计划。这个过程因此是 0 -> 1，(1'，..)，2，3，N。
 
-The development team focuses in on their creativity, experimentation, their critical thinking.
+开发团队把注意力集中在创造力、实验与批判性思维上。
 
-## The SDD Workflow in Practice
+## SDD 的实践工作流
 
-The workflow begins with an idea—often vague and incomplete. Through iterative dialogue with AI, this idea becomes a comprehensive PRD. The AI asks clarifying questions, identifies edge cases, and helps define precise acceptance criteria. What might take days of meetings and documentation in traditional development happens in hours of focused specification work. This transforms the traditional SDLC—requirements and design become continuous activities rather than discrete phases. This is supportive of a **team process**, where team-reviewed specifications are expressed and versioned, created in branches, and merged.
+工作流从一个想法开始——往往模糊且不完整。通过与 AI 的迭代对话，这个想法变成一份完整的 PRD。AI 会提问澄清、识别边界条件，并帮助定义精确的验收标准。传统开发中可能需要数天会议与文档的工作，在这里可在数小时的聚焦式规范编写中完成。这改变了传统 SDLC——需求与设计从离散阶段转变为持续活动。这支持一种团队流程：团队评审过的规范被表达并版本化，在分支中创建并合并。
 
-When a product manager updates acceptance criteria, implementation plans automatically flag affected technical decisions. When an architect discovers a better pattern, the PRD updates to reflect new possibilities.
+当产品经理更新验收标准时，实现计划会自动标注受影响的技术决策。当架构师发现更好的模式时，PRD 会更新以反映新可能。
 
-Throughout this specification process, research agents gather critical context. They investigate library compatibility, performance benchmarks, and security implications. Organizational constraints are discovered and applied automatically—your company's database standards, authentication requirements, and deployment policies seamlessly integrate into every specification.
+在整个规范过程里，研究型代理收集关键上下文。他们调查库的兼容性、性能基准与安全影响。组织约束被自动发现并应用——你公司的数据库标准、认证要求与部署策略无缝集成进每一份规范。
 
-From the PRD, AI generates implementation plans that map requirements to technical decisions. Every technology choice has documented rationale. Every architectural decision traces back to specific requirements. Throughout this process, consistency validation continuously improves quality. AI analyzes specifications for ambiguity, contradictions, and gaps—not as a one-time gate, but as an ongoing refinement.
+从 PRD 出发，AI 生成将需求映射到技术决策的实现计划。每个技术选择都有文档化的理由。每一项架构决策都能追溯到具体需求。在整个过程中，一致性验证持续改进质量。AI 持续分析规范中的歧义、矛盾与缺口——这不是一次性的闸门，而是持续的打磨。
 
-Code generation begins as soon as specifications and their implementation plans are stable enough, but they do not have to be "complete." Early generations might be exploratory—testing whether the specification makes sense in practice. Domain concepts become data models. User stories become API endpoints. Acceptance scenarios become tests. This merges development and testing through specification—test scenarios aren't written after code, they're part of the specification that generates both implementation and tests.
+只要规范及其实现计划稳定到一定程度，代码生成即可开始，但它们不必“完整”。早期生成可以是探索性的——检验规范在实践中的可行性。领域概念成为数据模型。用户故事成为 API 端点。验收场景成为测试。通过规范把开发与测试合而为一——测试场景不是在代码之后再写的，它们是生成实现与测试的规范的一部分。
 
-The feedback loop extends beyond initial development. Production metrics and incidents don't just trigger hotfixes—they update specifications for the next regeneration. Performance bottlenecks become new non-functional requirements. Security vulnerabilities become constraints that affect all future generations. This iterative dance between specification, implementation, and operational reality is where true understanding emerges and where the traditional SDLC transforms into a continuous evolution.
+反馈回路超越最初开发。生产指标与事故不只是触发热修复——它们会更新规范用于下一次再生成。性能瓶颈成为新的非功能性需求。安全漏洞变成影响所有未来生成的约束。规范、实现与运行现实之间的这种迭代舞步，孕育真正理解，并让传统 SDLC 演化为持续进化。
 
-## Why SDD Matters Now
+## 为什么此刻需要 SDD
 
-Three trends make SDD not just possible but necessary:
+三大趋势让 SDD 不仅可行而且必需：
 
-First, AI capabilities have reached a threshold where natural language specifications can reliably generate working code. This isn't about replacing developers—it's about amplifying their effectiveness by automating the mechanical translation from specification to implementation. It can amplify exploration and creativity, support "start-over" easily, and support addition, subtraction, and critical thinking.
+首先，AI 的能力已达阈值，自然语言规范能够可靠地生成可用的代码。这不是要取代开发者——而是通过将从规范到实现的机械性翻译自动化来放大他们的效能。它能放大探索与创造，轻松支持“重新开始”，并支持增删与批判性思考。
 
-Second, software complexity continues to grow exponentially. Modern systems integrate dozens of services, frameworks, and dependencies. Keeping all these pieces aligned with original intent through manual processes becomes increasingly difficult. SDD provides systematic alignment through specification-driven generation. Frameworks may evolve to provide AI-first support, not human-first support, or architect around reusable components.
+其次，软件复杂度持续指数级增长。现代系统整合数十个服务、框架与依赖项。靠手工流程让所有部分与最初意图保持一致愈发困难。SDD 通过“规范驱动生成”提供系统性对齐。框架可能会演进为优先支持 AI，而非优先支持人类，或围绕可复用组件来架构。
 
-Third, the pace of change accelerates. Requirements change far more rapidly today than ever before. Pivoting is no longer exceptional—it's expected. Modern product development demands rapid iteration based on user feedback, market conditions, and competitive pressures. Traditional development treats these changes as disruptions. Each pivot requires manually propagating changes through documentation, design, and code. The result is either slow, careful updates that limit velocity, or fast, reckless changes that accumulate technical debt.
+第三，变化速度在加快。今天的需求变化远比以往频繁。转向不再是例外——而是常态。现代产品开发要求基于用户反馈、市场环境与竞争压力的快速迭代。传统开发把这些变化当作扰动。每一次转向都需要手动把变化传播到文档、设计与代码。结果要么是缓慢而谨慎的更新，限制了速度；要么是快速而鲁莽的改动，积累技术债务。
 
-SDD can support what-if/simulation experiments: "If we need to re-implement or change the application to promote a business need to sell more T-shirts, how would we implement and experiment for that?"
+SDD 能支持“假如/仿真”实验：“如果我们需要为了卖出更多 T 恤而重新实现或更改应用，我们会如何实现并进行实验？”
 
-SDD transforms requirement changes from obstacles into normal workflow. When specifications drive implementation, pivots become systematic regenerations rather than manual rewrites. Change a core requirement in the PRD, and affected implementation plans update automatically. Modify a user story, and corresponding API endpoints regenerate. This isn't just about initial development—it's about maintaining engineering velocity through inevitable changes.
+SDD 把需求变化从障碍转变为常规工作流。当规范驱动实现时，转向变成系统化的再生成，而非手工重写。修改 PRD 中的核心需求，受影响的实现计划会自动更新。更改用户故事，对应的 API 端点会再生成。这不仅关乎初始开发——更关乎在不可避免的变化中维持工程速度。
 
-## Core Principles
+## 核心原则
 
-**Specifications as the Lingua Franca**: The specification becomes the primary artifact. Code becomes its expression in a particular language and framework. Maintaining software means evolving specifications.
+**规范是通用语**：规范成为第一性产物。代码成为它在特定语言与框架中的表达。维护软件意味着演进规范。
 
-**Executable Specifications**: Specifications must be precise, complete, and unambiguous enough to generate working systems. This eliminates the gap between intent and implementation.
+**可执行规范**：规范必须精确、完整、无歧义，足以生成可运行的系统。这消除了意图与实现之间的鸿沟。
 
-**Continuous Refinement**: Consistency validation happens continuously, not as a one-time gate. AI analyzes specifications for ambiguity, contradictions, and gaps as an ongoing process.
+**持续打磨**：一致性验证是持续进行的，而非一次性闸门。AI 把对歧义、矛盾与缺口的分析作为持续过程。
 
-**Research-Driven Context**: Research agents gather critical context throughout the specification process, investigating technical options, performance implications, and organizational constraints.
+**研究驱动上下文**：研究型代理在规范过程中持续收集关键上下文，调查技术选项、性能影响与组织约束。
 
-**Bidirectional Feedback**: Production reality informs specification evolution. Metrics, incidents, and operational learnings become inputs for specification refinement.
+**双向反馈**：生产现实驱动规范演进。指标、事故与运维经验成为规范打磨的输入。
 
-**Branching for Exploration**: Generate multiple implementation approaches from the same specification to explore different optimization targets—performance, maintainability, user experience, cost.
+**分支化探索**：从同一规范生成多种实现方案，以探索不同的优化目标——性能、可维护性、用户体验、成本。
 
-## Implementation Approaches
+## 实施路径
 
-Today, practicing SDD requires assembling existing tools and maintaining discipline throughout the process. The methodology can be practiced with:
+如今，要实践 SDD，需要把现有工具组合起来，并在整个过程中保持纪律性。该方法论可以通过以下方式实践：
 
-- AI assistants for iterative specification development
-- Research agents for gathering technical context
-- Code generation tools for translating specifications to implementation
-- Version control systems adapted for specification-first workflows
-- Consistency checking through AI analysis of specification documents
+- AI 助手用于迭代式规范开发
+- 研究代理用于收集技术上下文
+- 代码生成工具用于把规范转译为实现
+- 适配“规范优先工作流”的版本控制系统
+- 通过 AI 对规范文档进行一致性检查
 
-The key is treating specifications as the source of truth, with code as the generated output that serves the specification rather than the other way around.
+关键在于把规范当作事实来源，代码是服务于规范的生成产物，而非本末倒置。
 
-## Streamlining SDD with Commands
+## 用命令让 SDD 更高效
 
-The SDD methodology is significantly enhanced through three powerful commands that automate the specification → planning → tasking workflow:
+SDD 方法论通过三条强力命令显著增强，它们自动化了“规范 → 计划 → 任务”的工作流：
 
-### The `/specify` Command
+### `/specify` 命令
 
-This command transforms a simple feature description (the user-prompt) into a complete, structured specification with automatic repository management:
+该命令把一个简单的功能描述（用户提示）转化为完整、结构化的规范，并自动进行仓库管理：
 
-1. **Automatic Feature Numbering**: Scans existing specs to determine the next feature number (e.g., 001, 002, 003)
-2. **Branch Creation**: Generates a semantic branch name from your description and creates it automatically
-3. **Template-Based Generation**: Copies and customizes the feature specification template with your requirements
-4. **Directory Structure**: Creates the proper `specs/[branch-name]/` structure for all related documents
+1. **自动功能编号**：扫描现有规范以确定下一个功能编号（如 001、002、003）
+2. **创建分支**：基于描述生成语义化分支名并自动创建
+3. **基于模板生成**：复制功能规范模板并按你的需求定制
+4. **目录结构**：创建规范相关文档的 `specs/[branch-name]/` 目录结构
 
-### The `/plan` Command
+### `/plan` 命令
 
-Once a feature specification exists, this command creates a comprehensive implementation plan:
+当功能规范存在后，该命令生成一份完整的实现计划：
 
-1. **Specification Analysis**: Reads and understands the feature requirements, user stories, and acceptance criteria
-2. **Constitutional Compliance**: Ensures alignment with project constitution and architectural principles
-3. **Technical Translation**: Converts business requirements into technical architecture and implementation details
-4. **Detailed Documentation**: Generates supporting documents for data models, API contracts, and test scenarios
-5. **Quickstart Validation**: Produces a quickstart guide capturing key validation scenarios
+1. **规范分析**：阅读并理解功能需求、用户故事与验收标准
+2. **宪章一致性**：确保与项目宪章和架构原则保持一致
+3. **技术翻译**：把业务需求转化为技术架构与实现细节
+4. **详细文档**：生成数据模型、API 合同与测试场景等配套文档
+5. **快速验证**：产出抓取关键验证场景的快速指南
 
-### The `/tasks` Command
+### `/tasks` 命令
 
-After a plan is created, this command analyzes the plan and related design documents to generate an executable task list:
+计划创建后，该命令分析计划与相关设计文档，生成可执行任务清单：
 
-1. **Inputs**: Reads `plan.md` (required) and, if present, `data-model.md`, `contracts/`, and `research.md`
-2. **Task Derivation**: Converts contracts, entities, and scenarios into specific tasks
-3. **Parallelization**: Marks independent tasks `[P]` and outlines safe parallel groups
-4. **Output**: Writes `tasks.md` in the feature directory, ready for execution by a Task agent
+1. **输入**：读取 `plan.md`（必需），并在存在时读取 `data-model.md`、`contracts/`、`research.md`
+2. **任务推导**：将合同、实体与场景转化为具体任务
+3. **并行化**：标注独立任务为 `[P]` 并给出安全的并行组
+4. **输出**：在功能目录下写入 `tasks.md`，可直接被 Task 代理执行
 
-### Example: Building a Chat Feature
+### 示例：构建聊天功能
 
-Here's how these commands transform the traditional development workflow:
+以下展示这些命令如何改造传统开发工作流：
 
-**Traditional Approach:**
+**传统方式：**
 
 ```text
-1. Write a PRD in a document (2-3 hours)
-2. Create design documents (2-3 hours)
-3. Set up project structure manually (30 minutes)
-4. Write technical specifications (3-4 hours)
-5. Create test plans (2 hours)
-Total: ~12 hours of documentation work
+1. 写一份 PRD（2-3 小时）
+2. 创建设计文档（2-3 小时）
+3. 手动搭建项目结构（30 分钟）
+4. 编写技术规范（3-4 小时）
+5. 制定测试计划（2 小时）
+总计：约 12 小时的文档性工作
 ```
 
-**SDD with Commands Approach:**
+**使用命令的 SDD 方式：**
 
 ```bash
-# Step 1: Create the feature specification (5 minutes)
+# 第 1 步：创建功能规范（5 分钟）
 /specify Real-time chat system with message history and user presence
 
-# This automatically:
-# - Creates branch "003-chat-system"
-# - Generates specs/003-chat-system/spec.md
-# - Populates it with structured requirements
+# 这将自动：
+# - 创建分支 "003-chat-system"
+# - 生成 specs/003-chat-system/spec.md
+# - 填充结构化的需求
 
-# Step 2: Generate implementation plan (5 minutes)
+# 第 2 步：生成实现计划（5 分钟）
 /plan WebSocket for real-time messaging, PostgreSQL for history, Redis for presence
 
-# Step 3: Generate executable tasks (5 minutes)
+# 第 3 步：生成可执行任务（5 分钟）
 /tasks
 
-# This automatically creates:
+# 这将自动创建：
 # - specs/003-chat-system/plan.md
-# - specs/003-chat-system/research.md (WebSocket library comparisons)
-# - specs/003-chat-system/data-model.md (Message and User schemas)
-# - specs/003-chat-system/contracts/ (WebSocket events, REST endpoints)
-# - specs/003-chat-system/quickstart.md (Key validation scenarios)
-# - specs/003-chat-system/tasks.md (Task list derived from the plan)
+# - specs/003-chat-system/research.md（WebSocket 库对比）
+# - specs/003-chat-system/data-model.md（Message 与 User 架构）
+# - specs/003-chat-system/contracts/（WebSocket 事件、REST 端点）
+# - specs/003-chat-system/quickstart.md（关键验证场景）
+# - specs/003-chat-system/tasks.md（由计划派生的任务清单）
 ```
 
-In 15 minutes, you have:
+在 15 分钟内，你将拥有：
 
-- A complete feature specification with user stories and acceptance criteria
-- A detailed implementation plan with technology choices and rationale
-- API contracts and data models ready for code generation
-- Comprehensive test scenarios for both automated and manual testing
-- All documents properly versioned in a feature branch
+- 一份包含用户故事与验收标准的完整功能规范
+- 一份包含技术选择与理由的详细实现计划
+- 可直接用于代码生成的 API 合同与数据模型
+- 覆盖自动化与手动测试的完整测试场景
+- 所有文档在功能分支中被妥善版本化
 
-### The Power of Structured Automation
+### 结构化自动化的力量
 
-These commands don't just save time—they enforce consistency and completeness:
+这些命令不仅节省时间——还强制一致性与完整性：
 
-1. **No Forgotten Details**: Templates ensure every aspect is considered, from non-functional requirements to error handling
-2. **Traceable Decisions**: Every technical choice links back to specific requirements
-3. **Living Documentation**: Specifications stay in sync with code because they generate it
-4. **Rapid Iteration**: Change requirements and regenerate plans in minutes, not days
+1. **不遗漏细节**：模板确保从非功能需求到错误处理等各方面都被考虑
+2. **决策可追溯**：每个技术选择都能追溯到具体需求
+3. **活文档**：规范与代码保持同步，因为代码由规范生成
+4. **快速迭代**：修改需求后在数分钟内再生成计划，而非数天
 
-The commands embody SDD principles by treating specifications as executable artifacts rather than static documents. They transform the specification process from a necessary evil into the driving force of development.
+这些命令把 SDD 原则落到实处：把规范视为可执行的工件，而非静态文档。它们让规范过程从“不得不做”的负担，变为开发的驱动力。
 
-### Template-Driven Quality: How Structure Constrains LLMs for Better Outcomes
+### 模板驱动的质量：结构如何约束 LLM 以获得更好结果
 
-The true power of these commands lies not just in automation, but in how the templates guide LLM behavior toward higher-quality specifications. The templates act as sophisticated prompts that constrain the LLM's output in productive ways:
+这些命令真正的力量不仅在于自动化，还在于模板如何引导 LLM 朝更高质量的规范输出。模板相当于高级提示，能以有益的方式约束 LLM 的输出：
 
-#### 1. **Preventing Premature Implementation Details**
+#### 1. 防止过早落入实现细节
 
-The feature specification template explicitly instructs:
+功能规范模板明确要求：
 
 ```text
-- ✅ Focus on WHAT users need and WHY
-- ❌ Avoid HOW to implement (no tech stack, APIs, code structure)
+- ✅ 关注用户需要“什么”以及“为什么”
+- ❌ 避免“如何实现”（不要写技术栈、API、代码结构）
 ```
 
-This constraint forces the LLM to maintain proper abstraction levels. When an LLM might naturally jump to "implement using React with Redux," the template keeps it focused on "users need real-time updates of their data." This separation ensures specifications remain stable even as implementation technologies change.
+这种约束迫使 LLM 保持恰当的抽象层级。当 LLM 自然会跳到“用 React + Redux 实现”时，模板会让它聚焦于“用户需要实时看到数据更新”。这种分离保证了规范在实现技术变化时保持稳定。
 
-#### 2. **Forcing Explicit Uncertainty Markers**
+#### 2. 强制明确的不确定性标记
 
-Both templates mandate the use of `[NEEDS CLARIFICATION]` markers:
+两个模板都强制使用 `[NEEDS CLARIFICATION]` 标记：
 
 ```text
-When creating this spec from a user prompt:
-1. **Mark all ambiguities**: Use [NEEDS CLARIFICATION: specific question]
-2. **Don't guess**: If the prompt doesn't specify something, mark it
+当根据用户提示创建此规范时：
+1. 标记所有不明确之处：使用 [NEEDS CLARIFICATION: 具体问题]
+2. 不要猜测：提示未说明的内容，一律标记
 ```
 
-This prevents the common LLM behavior of making plausible but potentially incorrect assumptions. Instead of guessing that a "login system" uses email/password authentication, the LLM must mark it as `[NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]`.
+这防止 LLM 做出看似合理但可能错误的假设。与其猜“登录系统”使用邮箱/密码认证，不如标记为 `[NEEDS CLARIFICATION: 未指定认证方式——邮箱/密码、SSO、OAuth？]`。
 
-#### 3. **Structured Thinking Through Checklists**
+#### 3. 通过清单促进结构化思考
 
-The templates include comprehensive checklists that act as "unit tests" for the specification:
+模板包含全面的清单，充当规范的“单元测试”：
 
 ```markdown
-### Requirement Completeness
-- [ ] No [NEEDS CLARIFICATION] markers remain
-- [ ] Requirements are testable and unambiguous
-- [ ] Success criteria are measurable
+### 需求完整性
+- [ ] 不再存在任何 [NEEDS CLARIFICATION] 标记
+- [ ] 需求可测试且无歧义
+- [ ] 成功标准可度量
 ```
 
-These checklists force the LLM to self-review its output systematically, catching gaps that might otherwise slip through. It's like giving the LLM a quality assurance framework.
+这些清单迫使 LLM 系统性自检，捕捉原本可能遗漏的缺口。就像给 LLM 配了一套质量保证框架。
 
-#### 4. **Constitutional Compliance Through Gates**
+#### 4. 通过闸门确保宪章一致性
 
-The implementation plan template enforces architectural principles through phase gates:
+实现计划模板通过分阶段闸门来执行架构原则：
 
 ```markdown
-### Phase -1: Pre-Implementation Gates
-#### Simplicity Gate (Article VII)
-- [ ] Using ≤3 projects?
-- [ ] No future-proofing?
-#### Anti-Abstraction Gate (Article VIII)
-- [ ] Using framework directly?
-- [ ] Single model representation?
+### 第 -1 阶段：实现前闸门
+#### 简单性闸门（第七条）
+- [ ] 是否使用 ≤3 个项目？
+- [ ] 是否没有“为未来做准备”的过度设计？
+#### 反抽象闸门（第八条）
+- [ ] 是否直接使用框架？
+- [ ] 是否单一模型表示？
 ```
 
-These gates prevent over-engineering by making the LLM explicitly justify any complexity. If a gate fails, the LLM must document why in the "Complexity Tracking" section, creating accountability for architectural decisions.
+这些闸门通过要求 LLM 明确为复杂性作出解释，来防止过度工程化。如果闸门未通过，LLM 必须在“复杂性跟踪”部分记录原因，为架构决策提供问责。
 
-#### 5. **Hierarchical Detail Management**
+#### 5. 分层细节管理
 
-The templates enforce proper information architecture:
+模板强制正确的信息架构：
 
 ```text
-**IMPORTANT**: This implementation plan should remain high-level and readable.
-Any code samples, detailed algorithms, or extensive technical specifications
-must be placed in the appropriate `implementation-details/` file
+重要：此实现计划应保持高层次与可读性。
+任何代码示例、详细算法或大量技术规格
+必须放在合适的 `implementation-details/` 文件中
 ```
 
-This prevents the common problem of specifications becoming unreadable code dumps. The LLM learns to maintain appropriate detail levels, extracting complexity to separate files while keeping the main document navigable.
+这防止规范沦为难以阅读的代码堆。LLM 学会维持适当细节层级，把复杂性抽取到独立文件，同时保持主文档可导航。
 
-#### 6. **Test-First Thinking**
+#### 6. 测试优先的思维
 
-The implementation template enforces test-first development:
+实现模板强制测试优先开发：
 
 ```text
-### File Creation Order
-1. Create `contracts/` with API specifications
-2. Create test files in order: contract → integration → e2e → unit
-3. Create source files to make tests pass
+### 文件创建顺序
+1. 先创建包含 API 规格的 `contracts/`
+2. 按顺序创建测试文件：合同 → 集成 → 端到端 → 单元
+3. 创建源码以让测试通过
 ```
 
-This ordering constraint ensures the LLM thinks about testability and contracts before implementation, leading to more robust and verifiable specifications.
+这种排序约束确保 LLM 在实现前思考可测试性与合同，从而产出更健壮、可验证的规范。
 
-#### 7. **Preventing Speculative Features**
+#### 7. 防止投机式功能
 
-Templates explicitly discourage speculation:
+模板明确反对“也许需要”的功能：
 
 ```text
-- [ ] No speculative or "might need" features
-- [ ] All phases have clear prerequisites and deliverables
+- [ ] 不包含投机或“可能需要”的功能
+- [ ] 所有阶段都有明确的前置条件与可交付物
 ```
 
-This stops the LLM from adding "nice to have" features that complicate implementation. Every feature must trace back to a concrete user story with clear acceptance criteria.
+这阻止 LLM 添加会复杂化实现的“锦上添花”。每个功能都必须追溯到具有明确验收标准的具体用户故事。
 
-### The Compound Effect
+### 复合效应
 
-These constraints work together to produce specifications that are:
+这些约束共同作用，产出如下特性的规范：
 
-- **Complete**: Checklists ensure nothing is forgotten
-- **Unambiguous**: Forced clarification markers highlight uncertainties
-- **Testable**: Test-first thinking baked into the process
-- **Maintainable**: Proper abstraction levels and information hierarchy
-- **Implementable**: Clear phases with concrete deliverables
+- **完整**：清单保证不遗漏任何方面
+- **无歧义**：强制澄清标记凸显不确定性
+- **可测试**：测试优先思想内化其中
+- **可维护**：恰当抽象层级与信息层次
+- **可实现**：阶段清晰、交付物具体
 
-The templates transform the LLM from a creative writer into a disciplined specification engineer, channeling its capabilities toward producing consistently high-quality, executable specifications that truly drive development.
+这些模板把 LLM 从“创意写手”转变为“纪律严明的规范工程师”，引导其稳定产出高质量、可执行、真正驱动开发的规范。
 
-## The Constitutional Foundation: Enforcing Architectural Discipline
+## 宪章之基：执行架构纪律
 
-At the heart of SDD lies a constitution—a set of immutable principles that govern how specifications become code. The constitution (`memory/constitution.md`) acts as the architectural DNA of the system, ensuring that every generated implementation maintains consistency, simplicity, and quality.
+SDD 的核心是一部“宪章”——一组约束规范如何成为代码的不可变原则。该宪章（`memory/constitution.md`）充当系统的架构 DNA，确保每一次生成的实现保持一致性、简洁性与质量。
 
-### The Nine Articles of Development
+### 九条原则
 
-The constitution defines nine articles that shape every aspect of the development process:
+宪章定义了塑造开发过程各方面的九条原则：
 
-#### Article I: Library-First Principle
+#### 第一条：库优先原则
 
-Every feature must begin as a standalone library—no exceptions. This forces modular design from the start:
+每个功能必须以独立库的形式开始——无例外。这从一开始就强制模块化设计：
 
 ```text
-Every feature in Specify MUST begin its existence as a standalone library.
-No feature shall be implemented directly within application code without
-first being abstracted into a reusable library component.
+Specify 中的每个功能必须以独立库的形式开始其生命。
+在未先抽象为可复用的库组件之前，任何功能不得直接在应用代码中实现。
 ```
 
-This principle ensures that specifications generate modular, reusable code rather than monolithic applications. When the LLM generates an implementation plan, it must structure features as libraries with clear boundaries and minimal dependencies.
+该原则确保规范生成的是模块化、可复用的代码，而非单体应用。当 LLM 生成实现计划时，必须将功能组织为边界清晰、依赖最小的库。
 
-#### Article II: CLI Interface Mandate
+#### 第二条：CLI 接口强制
 
-Every library must expose its functionality through a command-line interface:
+每个库都必须通过命令行接口暴露其能力：
 
 ```text
-All CLI interfaces MUST:
-- Accept text as input (via stdin, arguments, or files)
-- Produce text as output (via stdout)
-- Support JSON format for structured data exchange
+所有 CLI 接口必须：
+- 接受文本输入（通过 stdin、参数或文件）
+- 产生文本输出（通过 stdout）
+- 支持 JSON 作为结构化数据交换格式
 ```
 
-This enforces observability and testability. The LLM cannot hide functionality inside opaque classes—everything must be accessible and verifiable through text-based interfaces.
+这强化了可观测性与可测试性。LLM 不能把能力藏在不透明的类里——一切都必须通过文本界面可访问且可校验。
 
-#### Article III: Test-First Imperative
+#### 第三条：测试优先铁律
 
-The most transformative article—no code before tests:
+最具变革性的条款——先有测试，后有代码：
 
 ```text
-This is NON-NEGOTIABLE: All implementation MUST follow strict Test-Driven Development.
-No implementation code shall be written before:
-1. Unit tests are written
-2. Tests are validated and approved by the user
-3. Tests are confirmed to FAIL (Red phase)
+这不可协商：所有实现必须严格遵循测试驱动开发。
+在以下步骤完成前不得编写实现代码：
+1. 写好单元测试
+2. 由用户验证并批准测试
+3. 确认测试处于失败态（红灯阶段）
 ```
 
-This completely inverts traditional AI code generation. Instead of generating code and hoping it works, the LLM must first generate comprehensive tests that define behavior, get them approved, and only then generate implementation.
+这彻底颠覆了传统的 AI 代码生成。不是先生成代码再祈祷它可用，而是先生成定义行为的完整测试，获得批准后再生成实现。
 
-#### Articles VII & VIII: Simplicity and Anti-Abstraction
+#### 第七与第八条：简单性与反抽象
 
-These paired articles combat over-engineering:
+这对条款用来对抗过度工程化：
 
 ```text
-Section 7.3: Minimal Project Structure
-- Maximum 3 projects for initial implementation
-- Additional projects require documented justification
+第 7.3 节：最小化项目结构
+- 初始实现最多 3 个项目
+- 增加项目需提供书面理由
 
-Section 8.1: Framework Trust
-- Use framework features directly rather than wrapping them
+第 8.1 节：信任框架
+- 直接使用框架能力，而非再包一层
 ```
 
-When an LLM might naturally create elaborate abstractions, these articles force it to justify every layer of complexity. The implementation plan template's "Phase -1 Gates" directly enforce these principles.
+当 LLM 倾向于创造繁复抽象层时，这些条款迫使它对每一层复杂性给出理由。实现计划模板中的“第 -1 阶段闸门”直接执行这些原则。
 
-#### Article IX: Integration-First Testing
+#### 第九条：以集成为先的测试
 
-Prioritizes real-world testing over isolated unit tests:
+优先真实世界的测试，而非孤立的单元测试：
 
 ```text
-Tests MUST use realistic environments:
-- Prefer real databases over mocks
-- Use actual service instances over stubs
-- Contract tests mandatory before implementation
+测试必须使用真实环境：
+- 倾向使用真实数据库而非模拟
+- 使用实际服务实例而非桩件
+- 在实现前必须完成合同测试
 ```
 
-This ensures generated code works in practice, not just in theory.
+这确保生成的代码不仅在理论上可行，更在实践中可用。
 
-### Constitutional Enforcement Through Templates
+### 通过模板执行宪章
 
-The implementation plan template operationalizes these articles through concrete checkpoints:
+实现计划模板通过具体的检查点将这些条款操作化：
 
 ```markdown
-### Phase -1: Pre-Implementation Gates
-#### Simplicity Gate (Article VII)
-- [ ] Using ≤3 projects?
-- [ ] No future-proofing?
+### 第 -1 阶段：实现前闸门
+#### 简单性闸门（第七条）
+- [ ] 是否使用 ≤3 个项目？
+- [ ] 是否没有“为未来做准备”的过度设计？
 
-#### Anti-Abstraction Gate (Article VIII)
-- [ ] Using framework directly?
-- [ ] Single model representation?
+#### 反抽象闸门（第八条）
+- [ ] 是否直接使用框架？
+- [ ] 是否单一模型表示？
 
-#### Integration-First Gate (Article IX)
-- [ ] Contracts defined?
-- [ ] Contract tests written?
+#### 集成为先闸门（第九条）
+- [ ] 合同是否已定义？
+- [ ] 合同测试是否已编写？
 ```
 
-These gates act as compile-time checks for architectural principles. The LLM cannot proceed without either passing the gates or documenting justified exceptions in the "Complexity Tracking" section.
+这些闸门像编译期检查一样执行架构原则。LLM 不能在未通过闸门或未在“复杂性跟踪”部分记录正当例外时继续推进。
 
-### The Power of Immutable Principles
+### 不可变原则的力量
 
-The constitution's power lies in its immutability. While implementation details can evolve, the core principles remain constant. This provides:
+宪章的力量在于其不可变性。尽管实现细节可以演化，核心原则始终不变。这带来：
 
-1. **Consistency Across Time**: Code generated today follows the same principles as code generated next year
-2. **Consistency Across LLMs**: Different AI models produce architecturally compatible code
-3. **Architectural Integrity**: Every feature reinforces rather than undermines the system design
-4. **Quality Guarantees**: Test-first, library-first, and simplicity principles ensure maintainable code
+1. **跨时间的一致性**：今天生成的代码与明年生成的代码遵循同样的原则
+2. **跨模型的一致性**：不同的 AI 模型产出的架构彼此兼容
+3. **架构完整性**：每个功能都在强化而非削弱系统设计
+4. **质量保障**：测试优先、库优先与简单性原则确保可维护性
 
-### Constitutional Evolution
+### 宪章的演进
 
-While principles are immutable, their application can evolve:
+虽然原则不可变，但其适用方式可以演进：
 
 ```text
-Section 4.2: Amendment Process
-Modifications to this constitution require:
-- Explicit documentation of the rationale for change
-- Review and approval by project maintainers
-- Backwards compatibility assessment
+第 4.2 节：修订流程
+对本宪章的修改需：
+- 明确记录变更的理由
+- 由项目维护者评审与批准
+- 完成向后兼容性评估
 ```
 
-This allows the methodology to learn and improve while maintaining stability. The constitution shows its own evolution with dated amendments, demonstrating how principles can be refined based on real-world experience.
+这使方法论在保持稳定的同时能够学习与改进。宪章通过带时间戳的修订展示自身的演进，说明原则如何在真实世界经验中被打磨。
 
-### Beyond Rules: A Development Philosophy
+### 超越规则：一种开发哲学
 
-The constitution isn't just a rulebook—it's a philosophy that shapes how LLMs think about code generation:
+宪章不仅是规则手册——它是一种塑造 LLM 思考代码生成方式的哲学：
 
-- **Observability Over Opacity**: Everything must be inspectable through CLI interfaces
-- **Simplicity Over Cleverness**: Start simple, add complexity only when proven necessary
-- **Integration Over Isolation**: Test in real environments, not artificial ones
-- **Modularity Over Monoliths**: Every feature is a library with clear boundaries
+- **可观测胜于不透明**：一切都必须能通过 CLI 接口被检视
+- **简单胜于巧妙**：从简单开始，只有在确有必要时再增加复杂性
+- **集成胜于隔离**：在真实环境中测试，而非人造环境
+- **模块化胜于单体**：每个功能都是边界清晰的库
 
-By embedding these principles into the specification and planning process, SDD ensures that generated code isn't just functional—it's maintainable, testable, and architecturally sound. The constitution transforms AI from a code generator into an architectural partner that respects and reinforces system design principles.
+把这些原则嵌入规范与规划过程后，SDD 确保生成的代码不仅可用，而且可维护、可测试并具备良好的架构一致性。宪章把 AI 从“代码生成器”转变为尊重并强化系统设计原则的“架构伙伴”。
 
-## The Transformation
+## 变革
 
-This isn't about replacing developers or automating creativity. It's about amplifying human capability by automating mechanical translation. It's about creating a tight feedback loop where specifications, research, and code evolve together, each iteration bringing deeper understanding and better alignment between intent and implementation.
+这不是要替代开发者或自动化创造力。而是通过自动化机械式翻译来放大人的能力。它旨在构建一个紧密的反馈回路，让规范、研究与代码共同演化，每一次迭代都带来更深的理解，以及意图与实现之间更好的对齐。
 
-Software development needs better tools for maintaining alignment between intent and implementation. SDD provides the methodology for achieving this alignment through executable specifications that generate code rather than merely guiding it.
+软件开发需要更好的工具来维持意图与实现的对齐。SDD 提供了实现这种对齐的方法论：通过可执行规范来生成代码，而不是仅仅用规范去“指导”代码。
